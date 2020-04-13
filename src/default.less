@@ -1,0 +1,78 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  vertical-align: baseline;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  color: #000;
+  background: #fff;
+  font: 12px/22px Verdana, Arial, sans-serif, "Times New Roman";
+  width: 100%;
+  overflow: hidden;
+}
+
+input, select, button {
+  font-size: 100%;
+  outline: 0;
+  vertical-align: middle;
+  -webkit-appearance: none;
+}
+
+button {
+  border: 0;
+  background-clip: padding-box;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+ol, ul, li {
+  list-style: none;
+}
+
+/* 定义图片边框，当图片作为链接内容被填充时，会有默认边框出现，重定义掉 */
+img {
+  border: none;
+  vertical-align: baseline;
+}
+
+a, a:link, a:visited {
+  color: #000;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #000;
+  text-decoration: underline;
+}
+
+/* 标签属性，textarea,input 强制输入时内容超出时换行，打断 */
+textarea, input {
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+span, p, div {
+  word-wrap: break-word;
+}
+
+.lf {
+  float: left;
+}
+
+.rt {
+  float: right;
+}
+
+.clearfix {
+  content: '';
+  display: block;
+  clear: both;
+}
