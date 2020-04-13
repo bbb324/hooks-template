@@ -30,6 +30,6 @@ const App = () => {
         <span onClick={() => clickevent(dispatch)}> click </span>
         <Notice/>
     </div>
-}
+};
 
 export default App;
