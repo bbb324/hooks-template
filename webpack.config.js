@@ -5,10 +5,13 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const ChunksWebpackPlugin = require('chunks-webpack-plugin');
 module.exports = {
     entry: './src/index.jsx',
     output: {
         path: path.resolve(__dirname, 'build'),
+        publicPath: "build/", // 这个相对路径是给 chunkFile 用的，
+        chunkFilename: "[name].chunk.js",
         filename: 'bundle.js'
     },
     optimization: {
@@ -34,6 +37,9 @@ module.exports = {
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': '"production"'
         }),
+        new ChunksWebpackPlugin({
+            chunks: 'async',
+        })
     ],
     mode: 'development',
     module: {

@@ -1,6 +1,6 @@
 export const initState = {
     status: 'idle',
-
+    dataList: [],
 };
 
 export function reducerConfig(state = initState, action = {}) {
@@ -10,6 +10,11 @@ export function reducerConfig(state = initState, action = {}) {
                 return {
                     ...state,
                     status: action.data,
+                };
+            case 'triggerSetList':
+                return {
+                    ...state,
+                    dataList: action.data
                 };
         }
     } catch (e) {

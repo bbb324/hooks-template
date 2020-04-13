@@ -1,5 +1,17 @@
 import React, { useState, useEffect } from 'react';
 
+const list = ['notice1', 'notice2', 'notice3'];
+
+
+const clickevent = (value) => {
+    console.log(value)
+}
+
+const setList = () => {
+    return list.map(item => {
+        return <div key={item} onClick={() => clickevent(item)}>{item}</div>
+    })
+};
 
 // 通过 memo 的形式实现 pureComponent
 const Notice = React.memo(() => {
@@ -14,23 +26,9 @@ const Notice = React.memo(() => {
     }, []);
     console.log(1)
     return <div>
-        <div>notice 1</div>
-        <div>notice 2</div>
-        <div>notice 3</div>
+        {setList()}
     </div>
 })
-
-/*const Notice = () => {
-    useEffect(() => {
-
-    }, []);
-    console.log(1)
-    return <div>
-        <div>notice 1</div>
-        <div>notice 2</div>
-        <div>notice 3</div>
-    </div>
-}*/
 
 
 export default Notice;
