@@ -30,13 +30,12 @@ const fnRender = () => {
 };
 
 const dynamicSwitch = (state) => {
-    console.log(state.switchTo);
     if(state.switchTo === 1) {
         const DataList = lazy(() => import('./DataList'));
         return <DataList data={state.dataList}/>;
     } else {
-        const DataList2 = lazy(() => import('./DataList2'));
-        return <DataList2 data={state.dataList}/>;
+        const RenderImage = lazy(() => import('./RenderImage'));
+        return <RenderImage data={'https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png'}/>;
     }
 };
 

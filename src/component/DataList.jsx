@@ -1,21 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 
 const clickevent = (val) => {
     console.log(val);
-}
+};
 
 const renderList = (list) => {
     return list.map(item => {
-        return <div key={item.label} onClick={() => clickevent(item.label)}>{item.label}</div>
+        return <div key={item.label} onClick={() => clickevent(item.label)}>{item.label}</div>;
     });
-}
+};
 
 const DataList = (props) => {
-   if(props.length === 0) return null;
-    console.log('加载了第一个')
+    if (props.length === 0) return null;
+    console.log('加载了第一个');
     return <div>
         {renderList(props.data)}
     </div>;
-}
+};
 
 export default DataList;

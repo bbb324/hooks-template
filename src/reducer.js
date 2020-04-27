@@ -1,7 +1,8 @@
 export const initState = {
     status: 'idle',
     dataList: [],
-    switchTo: 1 // 动态加载tab
+    switchTo: 1, // 动态加载tab
+    imgSrc: ''
 };
 
 export function reducerConfig(state = initState, action = {}) {
@@ -16,6 +17,11 @@ export function reducerConfig(state = initState, action = {}) {
                 return {
                     ...state,
                     dataList: action.data
+                };
+            case 'triggerSetImg':
+                return {
+                    ...state,
+                    imgSrc: action.data
                 };
             case 'triggerSetSwitch':
                 return {

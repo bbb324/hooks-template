@@ -12,8 +12,8 @@ module.exports = (env = {}, argv) => {
         entry: './src/index.jsx',
         output: {
             path: path.resolve(__dirname, 'build'),
-            publicPath: "build/", // 这个相对路径是给 chunkFile 用的，
-            chunkFilename: "[name].chunk.js",
+            publicPath: 'build/', // 这个相对路径是给 chunkFile 用的，
+            chunkFilename: '[name].chunk.js',
             filename: 'bundle.js'
         },
         optimization: {
@@ -34,7 +34,7 @@ module.exports = (env = {}, argv) => {
         devtool: (() => {
             return isProduction
                 ? '' // 'hidden-source-map'
-                : 'source-map'
+                : 'source-map';
         })(),
         plugins: [
             new HtmlWebpackPlugin({
@@ -81,4 +81,4 @@ module.exports = (env = {}, argv) => {
         }
     };
     return config;
-}
+};
