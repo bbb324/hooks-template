@@ -19,7 +19,8 @@
   "description": "",
   "dependencies": {
     "react": "16.x",
-    "react-dom": "16.x"
+    "react-dom": "16.x",
+    "react-progressbar": "^15.4.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",

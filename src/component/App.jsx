@@ -1,7 +1,9 @@
 import React, {useEffect, useReducer, useMemo, useCallback, lazy, Suspense} from 'react';
 import {reducerConfig, initState} from '../reducer';
 import Notice from './Notice';
+import {
 
+} from '@alifd/next';
 
 
 const clickevent = (dispatch) => {
@@ -15,14 +17,7 @@ const clickSwitch = (state, dispatch) => {
     dispatch({type: 'triggerSetSwitch', data: state.switchTo === 1 ? 2 : 1});
 };
 
-const fetchList = (dispatch) => {
-    fetch('https://os.alipayobjects.com/rmsportal/ODDwqcDFTLAguOvWEolX.json')
-        .then(response => response.json())
-        .then(data => {
-            dispatch({type: 'triggerSetList', data: data});
-        })
-        .catch(e => console.log(e));
-};
+
 
 
 const fnRender = () => {
@@ -30,21 +25,23 @@ const fnRender = () => {
 };
 
 const dynamicSwitch = (state) => {
+
     if(state.switchTo === 1) {
         const DataList = lazy(() => import('./DataList'));
-        return <DataList data={state.dataList}/>;
+        return <DataList />;
     } else {
+        const Progress = lazy(() => import('react-progressbar'));
+        return <Progress completed={50}/>;
+    }/*else {
         const RenderImage = lazy(() => import('./RenderImage'));
         return <RenderImage data={'https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png'}/>;
-    }
+    }*/
 };
 
 const App = () => {
     const [state, dispatch] = useReducer(reducerConfig, initState);
 
-    useEffect(() => {
-        fetchList(dispatch);
-    }, []);
+
     return <div>
         {state.status}
         <span onClick={() => clickevent(dispatch)}> click </span>
