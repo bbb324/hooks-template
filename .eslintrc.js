@@ -14,7 +14,7 @@ module.exports = {
         "indent": ["error", 4, { "SwitchCase": 1 }],
         "quotes": ["error", "single"],
         "semi": ["error", "always"],
-        "no-console": "error",
+        "no-console": 0,
         "arrow-parens": 0,
     },
     parser: "babel-eslint",
