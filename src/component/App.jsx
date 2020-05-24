@@ -1,9 +1,7 @@
 import React, {useEffect, useReducer, useMemo, useCallback, lazy, Suspense} from 'react';
 import {reducerConfig, initState} from '../reducer';
 import Notice from './Notice';
-import {
-
-} from '@alifd/next';
+import {} from '@alifd/next';
 
 
 const clickevent = (dispatch) => {
@@ -18,17 +16,15 @@ const clickSwitch = (state, dispatch) => {
 };
 
 
-
-
 const fnRender = () => {
     console.log('const that = this;');
 };
 
 const dynamicSwitch = (state) => {
 
-    if(state.switchTo === 1) {
+    if (state.switchTo === 1) {
         const DataList = lazy(() => import('./DataList'));
-        return <DataList />;
+        return <DataList/>;
     } else {
         const Progress = lazy(() => import('react-progressbar'));
         return <Progress completed={50}/>;
@@ -55,3 +51,20 @@ const App = () => {
 };
 
 export default App;
+
+
+Object.prototype.myImp = type => {
+    let proto = type.__proto__;
+    while (proto) {
+        if (proto.constructor && proto.constructor === type) {
+            return true;
+        }
+        if (proto.__proto__) {
+            proto = proto.__proto__;
+        } else {
+            break;
+        }
+    }
+    return false;
+};
+

@@ -32,12 +32,13 @@ function flater(arr) {
 *  4. 通过apply实现属性继承
 *
 * */
-function myNew() {
-   let obj = {};
-   let constructor = [].shift.apply(arguments);
-   obj.__proto__ = constructor.prototype;
-   let res = constructor.apply(obj, arguments);
-   return typeof res === 'object' ? res : obj;
+function myNewMyCallMyApply() {
+    let obj = {};
+    let constructor = [].slice.call(arguments);
+    obj.__proto__ = constructor.prototype;
+    let ret = constructor.apply(obj, constructor);
+    return typeof ret === 'object' ? ret : obj;
+
 }
 
 function testMyNew(name) {
@@ -65,23 +66,20 @@ function Otaku (name, age) {
 
 
 Function.prototype.myCall = function(obj,...args){
-    obj = obj ? obj : window;
+    obj = obj ? obj : window.obj;
     obj.fn = this;
     obj.fn(...args);
-    delete obj.fn
+    delete  obj.fn;
+    return obj;
 };
 
 Function.prototype.myApply = function(obj, arr) {
 
-    obj = obj ? obj : window;
-    obj.fn = this;
-    let res;
-
-    let args = [];
-
-
-    delete obj.fn;
-
+   obj = obj ? obj : window.obj;
+   obj.fn = this;
+   eval(`obj.fn(${arr})`)
+   delete obj.fn;
+   return obj;
 
 };
 
@@ -94,7 +92,10 @@ a = {
     }
 };
 b = { age: 13, name: 15};
+a.getAge.myApply(b)
+
 a.getAge.call(b)  // 13
+
 
 
 
