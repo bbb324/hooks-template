@@ -1,5 +1,5 @@
 // https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/
-
+// É¾³ýµ¥Á´±íµ¹ÊýkµÄ½Úµã  É¾³ýÉ¾³ý£¡£¡£¡£¡£¡
 function f(list, n) {
     let pre = new ListNode(null);
     let fast = pre.next;
