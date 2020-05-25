@@ -1,7 +1,9 @@
 /**
  * Created by Administrator on 2020/5/25.
+ *
+ * å¿«é€Ÿæ’åº  äºŒåˆ†æ³•  æ’åº
  */
-// ¿ìËÙÅÅĞò
+
 function sort(arr) {
     let left = [];
     let right = [];

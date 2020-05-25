@@ -34,10 +34,8 @@ function getVerse(str) {
 
 
 var isValid = function(s) {
-
-
-    if (s.length%2 === 1) return false
-    let stack = []
+    if (s.length%2 === 1) return false;
+    let stack = [];
     for (let i = 0; i < s.length; i++) {
         let letter = s[i]
         switch(letter) {
