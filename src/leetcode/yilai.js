@@ -1,3 +1,6 @@
+/*
+* 依赖
+* */
 var obj = [
     {id: 3, parent: 2},
     {id: 1, parent: null},

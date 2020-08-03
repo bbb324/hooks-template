@@ -1,37 +1,39 @@
-// 大数相加
+/*
+    大数相加
+    
+*/
 
-function aa(a, b) {
-    let length = a.length > b.length ? a.length : b.length;
-
-    let listA = a.split('').reverse();
-    let listB = b.split('').reverse();
-
-
-    let list = [];
-    let inc = 0;
-    for(let i = 0; i<length; i++) {
-
-        if(listB[i] === undefined) {
-            list[i] = +listA[i] + inc;
-            inc = 0;
-        } else {
-            let cur = Number(listA[i]) + Number(listB[i]) + inc;
-            if(cur >= 10) {
-                inc = 1;
-                cur = cur - 10;
-            } else {
-                inc = 0;
-            }
-            list[i] = cur;
-        }
+function bigNumber(str1, str2){
+  // 补全0，并多补一位0
+  let arr1 = null,arr2 = null
+  if(str1.length>str2.length){
+    str1 = '0'+str1
+    for(let i=str2.length;i < str1.length;i++){
+      str2 = '0' + str2
     }
-    if(list[list.length - 1] > 10) {
-        let cur = list[list.length - 1] - 10;
-        list.push(1);
-        list[list.length -1] = cur;
+    arr1 = str1.split('')
+    arr2 = str2.split('')
+  } else{
+    str2 = '0'+str2
+    for(let i=str1.length;i < str2.length;i++){
+      str1 = '0' + str1
     }
-    let sum = list.reverse().join('')
-    return +sum;
+    arr1 = str1.split('')
+    arr2 = str2.split('')
+  }
+ // 注意这里arr里边保存的还是字符串，需要转成数字后再相加
+  for (let i = arr1.length-1; i >= 0; i--) {
+    let temp = +arr1[i] + +arr2[i]
+    arr1[i] = temp % 10;
+    // 处理得到进位的结果
+    arr1[i - 1] = parseInt(arr1[i-1]) + Math.floor(temp / 10)
+  }
+  if(arr1[0] === 0){
+    return (arr1.join('')).substring(1)
+ 
+  } else{
+    return arr1.join('')
+  }
 }
 
-aa('4059231231231380371', '3187989556787623531');
+bigNumber('4121323429','9387864269')
